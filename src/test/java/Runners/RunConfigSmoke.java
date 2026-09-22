@@ -9,6 +9,6 @@ import org.junit.platform.suite.api.SuiteDisplayName;
 @SuiteDisplayName("Smoke Test Suite")
 @SelectPackages("example")
 @IncludeTags("smoke")
-public class RunConfig1 {
+public class RunConfigSmoke {
     //The annotations configure the test execution.
 }

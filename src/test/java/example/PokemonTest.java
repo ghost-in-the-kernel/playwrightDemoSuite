@@ -9,7 +9,6 @@ import Pages.PokemonHomePage.PokemonHomePage;
 
 public class PokemonTest extends example.BaseTest {
     @Test
-    @Tag("smoke")
     @Tag("regression")
     void PokeDexNav() {
         // 1. Start at the Home Page
