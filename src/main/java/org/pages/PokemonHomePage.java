@@ -31,7 +31,7 @@ public class PokemonHomePage {
         page.waitForTimeout(1000);
 
         pokedexLink.click();
-
+        page.waitForURL("**/pokedex");
         return new PokedexPage(page);
     }
 }

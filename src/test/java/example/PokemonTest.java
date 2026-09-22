@@ -14,18 +14,18 @@ public class PokemonTest extends example.BaseTest {
         homePage.page.navigate("https://pokemondb.net/");
         homePage.page.waitForLoadState(LoadState.DOMCONTENTLOADED);
 
+        //2. navigate to pokedex page
         PokedexPage pokedexPage = homePage.goToPokedex();
-        pokedexPage.page.waitForURL("**/pokedex");
         System.out.println("Successfully navigated to pokedex top!");
         page.waitForTimeout(1000);
 
+        //3. navigate to national dex page
         NationalDexPage NationalDexPage= pokedexPage.goToNationalDex();
-        pokedexPage.page.waitForURL("**/national");
         page.waitForTimeout(1000);
         System.out.println("Successfully navigated to National pokedex!");
 
+        //perform assertion
         NationalDexPage.assertBulbasaurIsVisible();
-
     }
 
     @Test //not separated into separate concerns.
