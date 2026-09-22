@@ -1,6 +1,7 @@
 package example;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.options.LoadState;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import Pages.NationalDexPage.NationalDexPage;
 import Pages.PokedexPage.PokedexPage;
@@ -8,6 +9,8 @@ import Pages.PokemonHomePage.PokemonHomePage;
 
 public class PokemonTest extends example.BaseTest {
     @Test
+    @Tag("smoke")
+    @Tag("regression")
     void PokeDexNav() {
         // 1. Start at the Home Page
         PokemonHomePage homePage = new PokemonHomePage(page);
@@ -29,6 +32,7 @@ public class PokemonTest extends example.BaseTest {
     }
 
     @Test //not separated into separate concerns.
+    @Tag("smoke")
     void navigateToScarlet() {
         page.navigate("https://pokemondb.net/");
 
