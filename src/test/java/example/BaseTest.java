@@ -17,10 +17,17 @@ public abstract class BaseTest {
     @BeforeAll
     static void launchBrowser() {
         playwright = Playwright.create();
+
+        // 1. Determine if headless should be true
+        boolean isHeadless = isHeadlessExecution();
+
+        // 2. Adjust slowMo (keep slowMo in headed mode for visual debugging, 0 in headless)
+        double slowMo = isHeadless ? 0 : 1000;
+
         browser = playwright.chromium().launch(
                 new BrowserType.LaunchOptions()
-                        .setHeadless(false)
-                        .setSlowMo(500)
+                        .setHeadless(isHeadless)
+                        .setSlowMo(slowMo)
                         .setArgs(Arrays.asList(
                                 "--disable-blink-features=AutomationControlled",
                                 "--disable-infobars",
@@ -29,6 +36,32 @@ public abstract class BaseTest {
                                 "--start-maximized"
                         ))
         );
+    }
+
+    /**
+     * Checks if headless mode should be enabled based on:
+     * 1. System property: -Dheadless=true
+     * 2. Environment variable: HEADLESS=true
+     * 3. CI Pipeline detection: CI=true
+     */
+    private static boolean isHeadlessExecution() {
+        // Option A: Command line parameter -Dheadless=true
+        String sysProp = System.getProperty("headless");
+        if (sysProp != null) {
+            return Boolean.parseBoolean(sysProp);
+        }
+        // Option B: Environment variable HEADLESS=true
+        String envVar = System.getenv("HEADLESS");
+        if (envVar != null) {
+            return Boolean.parseBoolean(envVar);
+        }
+        // Option C: Auto-detect CI environment (GitHub Actions, Jenkins, GitLab set CI=true automatically)
+        String ciEnv = System.getenv("CI");
+        if (ciEnv != null && Boolean.parseBoolean(ciEnv)) {
+            return true;
+        }
+        // Default to headed (false) for local running
+        return false;
     }
 
     @AfterAll
@@ -40,7 +73,6 @@ public abstract class BaseTest {
 
     @BeforeEach
     void createContextAndPage() {
-        // Create a context that mimics real world user (attempting to fool pokemon.com)
         context = browser.newContext(new Browser.NewContextOptions()
                 .setViewportSize(1920, 1080)
                 .setLocale("en-US")
@@ -51,7 +83,6 @@ public abstract class BaseTest {
                 ))
         );
 
-        // Hiding the definitions (to try to hide from pokemon.com script detector)
         context.addInitScript("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})");
         context.addInitScript("Object.defineProperty(navigator, 'plugins', {get: () => [1, 2, 3, 4, 5]})");
         context.addInitScript("Object.defineProperty(navigator, 'languages', {get: () => ['en-US', 'en']})");

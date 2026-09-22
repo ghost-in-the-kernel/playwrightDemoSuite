@@ -19,11 +19,9 @@ public class PokemonTest extends example.BaseTest {
         //2. navigate to pokedex page
         PokedexPage pokedexPage = homePage.goToPokedex();
         System.out.println("Successfully navigated to pokedex top!");
-        page.waitForTimeout(1000);
 
         //3. navigate to national dex page
         NationalDexPage NationalDexPage= pokedexPage.goToNationalDex();
-        page.waitForTimeout(1000);
         System.out.println("Successfully navigated to National pokedex!");
 
         //perform assertion
