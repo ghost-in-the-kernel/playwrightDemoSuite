@@ -40,7 +40,7 @@ public abstract class BaseTest {
 
     @BeforeEach
     void createContextAndPage() {
-        // Create a context that mimics a real US user
+        // Create a context that mimics real world user (attempting to fool pokemon.com)
         context = browser.newContext(new Browser.NewContextOptions()
                 .setViewportSize(1920, 1080)
                 .setLocale("en-US")
@@ -51,7 +51,7 @@ public abstract class BaseTest {
                 ))
         );
 
-        // INJECT STEALTH SCRIPTS INTO THE CONTEXT
+        // Hiding the definitions (to try to hide from pokemon.com script detector)
         context.addInitScript("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})");
         context.addInitScript("Object.defineProperty(navigator, 'plugins', {get: () => [1, 2, 3, 4, 5]})");
         context.addInitScript("Object.defineProperty(navigator, 'languages', {get: () => ['en-US', 'en']})");
