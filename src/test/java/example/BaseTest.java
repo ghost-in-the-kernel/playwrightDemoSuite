@@ -2,6 +2,7 @@ package example;
 
 import com.microsoft.playwright.*;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -77,7 +78,7 @@ public abstract class BaseTest {
                 .setViewportSize(1920, 1080)
                 .setLocale("en-US")
                 .setTimezoneId("America/New_York")
-                .setPermissions(Arrays.asList("geolocation"))
+                .setPermissions(List.of("geolocation"))
                 .setExtraHTTPHeaders(Map.of(
                         "Accept-Language", "en-US,en;q=0.9"
                 ))
