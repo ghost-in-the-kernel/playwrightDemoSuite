@@ -5,12 +5,10 @@ import com.microsoft.playwright.Page;
 
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
-public class NationalDexPage {
-    private final Page page;
+public class NationalDexPage{
     private final Locator bulbasaurLink;
 
     public NationalDexPage(Page page) {
-        this.page = page;
         this.bulbasaurLink = page.locator("a[href='/pokedex/bulbasaur']").first();
     }
 
