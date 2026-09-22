@@ -6,6 +6,7 @@ import com.microsoft.playwright.APIResponse;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Tag;
 
 import java.io.IOException;
 import static org.junit.jupiter.api.Assertions.*;
@@ -27,6 +28,7 @@ public class PokeApiTest extends BaseApiTest {
     }
 
     @Test
+    @Tag("api")
     void testGetPikachuDetails() throws IOException {
         System.out.println("\n========================================");
         System.out.println("   Pikachu API test");
@@ -53,6 +55,7 @@ public class PokeApiTest extends BaseApiTest {
     }
 
     @Test
+    @Tag("api")
     void MewtoTest() throws IOException {
         System.out.println("\n========================================");
         System.out.println("   Mewto Details Test(should fail and throw exception)");
