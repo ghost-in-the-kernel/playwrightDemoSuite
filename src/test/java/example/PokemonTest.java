@@ -2,9 +2,9 @@ package example;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.options.LoadState;
 import org.junit.jupiter.api.Test;
-import org.pages.NationalDexPage;
-import org.pages.PokedexPage;
-import org.pages.PokemonHomePage;
+import Pages.NationalDexPage.NationalDexPage;
+import Pages.PokedexPage.PokedexPage;
+import Pages.PokemonHomePage.PokemonHomePage;
 
 public class PokemonTest extends example.BaseTest {
     @Test

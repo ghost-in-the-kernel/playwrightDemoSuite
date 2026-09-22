@@ -1,5 +1,6 @@
-package org.pages;
+package Pages.PokemonHomePage;
 
+import Pages.PokedexPage.PokedexPage;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 
