@@ -5,7 +5,7 @@ import com.microsoft.playwright.options.LoadState;
 import java.nio.file.Paths;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import Pages.NationalDexPage.NationalDexPage;
+import Pages.NationalDexPage.PokemonFullListPage;
 import Pages.PokedexPage.PokedexPage;
 import Pages.PokemonHomePage.PokemonHomePage;
 
@@ -26,15 +26,15 @@ public class PokemonTest extends example.BaseTest {
         System.out.println("Successfully navigated to pokedex top!");
 
         //3. navigate to national dex page
-        NationalDexPage NationalDexPage= pokedexPage.goToMasterList();
+        PokemonFullListPage PokemonFullListPage = pokedexPage.click().goToMasterList();
         System.out.println("Successfully navigated to National pokedex!");
 
         //perform assertion
-        NationalDexPage.verify().pokemon("Bulbasaur").isVisible();
-        NationalDexPage.verify().pokemon("Charmander").isVisible();
-        NationalDexPage.verify().pokemon("Squirtle").isVisible();
-        NationalDexPage.verify().pokemon("Venusaur").isVisible();
-        NationalDexPage.verify().pokemon("Charizard").isVisible();
+        PokemonFullListPage.verify().pokemon("Bulbasaur").isVisible();
+        PokemonFullListPage.verify().pokemon("Charmander").isVisible();
+        PokemonFullListPage.verify().pokemon("Squirtle").isVisible();
+        PokemonFullListPage.verify().pokemon("Venusaur").isVisible();
+        PokemonFullListPage.verify().pokemon("Charizard").isVisible();
     }
 
     @Test //not separated into separate concerns.

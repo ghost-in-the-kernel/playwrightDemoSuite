@@ -1,19 +1,19 @@
 package Pages.NationalDexPage.Actions;
 
-import Pages.NationalDexPage.NationalDexPageElements;
+import Pages.NationalDexPage.PokemonFullListElements;
 import com.microsoft.playwright.Page;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
-public class NationalDexPageVerifyActions {
+public class PokemonFullListVerifyActions {
     private final Page page;
 
-    public NationalDexPageVerifyActions(Page page) {
+    public PokemonFullListVerifyActions(Page page) {
         this.page = page;
     }
 
     public PokemonAssertion pokemon(String pokemonName) {
         return new PokemonAssertion(
-                NationalDexPageElements.getPokemonLink(page, pokemonName),
+                PokemonFullListElements.getPokemonLink(page, pokemonName),
                 pokemonName
         );
     }

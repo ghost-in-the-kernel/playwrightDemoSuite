@@ -3,7 +3,7 @@ package Pages.NationalDexPage;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 
-public enum NationalDexPageElements {
+public enum PokemonFullListElements {
     POKEDEX_TABLE(page -> page.locator("//table[@id='pokedex']")),
     Bulbasaur(page -> page.locator("//table[@id='pokedex']//a[@href='/pokedex/bulbasaur']")),
     Charmander(page -> page.locator("//table[@id='pokedex']//a[text()='Charmander']")),
@@ -16,7 +16,7 @@ public enum NationalDexPageElements {
 
     private final LocatorProvider provider;
 
-    NationalDexPageElements(LocatorProvider provider) {
+    PokemonFullListElements(LocatorProvider provider) {
         this.provider = provider;
     }
 
