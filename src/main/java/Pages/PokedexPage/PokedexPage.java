@@ -3,6 +3,7 @@ package Pages.PokedexPage;
 import Pages.NationalDexPage.NationalDexPage;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
+import com.microsoft.playwright.options.AriaRole;
 
 public class PokedexPage {
     public final Page page;
@@ -11,12 +12,13 @@ public class PokedexPage {
     public PokedexPage(Page page) {
         this.page = page;
 
-        this.nationalDexLink = page.locator("a[href='/pokedex/national']")
-                .filter(new Locator.FilterOptions().setHas(page.locator("strong")));
+        // Locates the link by its accessible text "All Pokémon"
+        this.nationalDexLink = page.getByRole(AriaRole.LINK,
+                new Page.GetByRoleOptions().setName("All Pokémon"));
     }
 
-    public NationalDexPage goToNationalDex() {
-        System.out.println("Navigating to National Dex...");
+    public NationalDexPage goToMasterList() {
+        System.out.println("Navigating to Master List...");
 
         nationalDexLink.scrollIntoViewIfNeeded();
         nationalDexLink.highlight();
@@ -24,7 +26,7 @@ public class PokedexPage {
 
         nationalDexLink.click();
 
-        page.waitForURL("**/national");
+        page.waitForURL("**/pokedex/all");
         return new NationalDexPage(page);
     }
 }

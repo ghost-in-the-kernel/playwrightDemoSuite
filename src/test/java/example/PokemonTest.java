@@ -1,6 +1,8 @@
 package example;
 import com.microsoft.playwright.Locator;
+import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.LoadState;
+import java.nio.file.Paths;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import Pages.NationalDexPage.NationalDexPage;
@@ -15,17 +17,24 @@ public class PokemonTest extends example.BaseTest {
         PokemonHomePage homePage = new PokemonHomePage(page);
         homePage.page.navigate("https://pokemondb.net/");
         homePage.page.waitForLoadState(LoadState.DOMCONTENTLOADED);
+        page.screenshot(new Page.ScreenshotOptions()
+                .setPath(Paths.get("target/screenshots/homepage.png"))
+                .setFullPage(true));
 
         //2. navigate to pokedex page
         PokedexPage pokedexPage = homePage.goToPokedex();
         System.out.println("Successfully navigated to pokedex top!");
 
         //3. navigate to national dex page
-        NationalDexPage NationalDexPage= pokedexPage.goToNationalDex();
+        NationalDexPage NationalDexPage= pokedexPage.goToMasterList();
         System.out.println("Successfully navigated to National pokedex!");
 
         //perform assertion
-        NationalDexPage.assertBulbasaurIsVisible();
+        NationalDexPage.verify().pokemon("Bulbasaur").isVisible();
+        NationalDexPage.verify().pokemon("Charmander").isVisible();
+        NationalDexPage.verify().pokemon("Squirtle").isVisible();
+        NationalDexPage.verify().pokemon("Venusaur").isVisible();
+        NationalDexPage.verify().pokemon("Charizard").isVisible();
     }
 
     @Test //not separated into separate concerns.
