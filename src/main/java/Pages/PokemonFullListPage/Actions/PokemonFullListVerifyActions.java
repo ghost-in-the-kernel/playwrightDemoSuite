@@ -1,6 +1,6 @@
-package Pages.NationalDexPage.Actions;
+package Pages.PokemonFullListPage.Actions;
 
-import Pages.NationalDexPage.PokemonFullListElements;
+import Pages.PokemonFullListPage.PokemonFullListElements;
 import com.microsoft.playwright.Page;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 

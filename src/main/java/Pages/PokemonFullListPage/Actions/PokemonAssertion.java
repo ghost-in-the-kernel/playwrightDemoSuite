@@ -1,4 +1,4 @@
-package Pages.NationalDexPage.Actions;
+package Pages.PokemonFullListPage.Actions;
 
 import com.microsoft.playwright.Locator;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;

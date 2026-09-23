@@ -5,7 +5,7 @@ import com.microsoft.playwright.options.LoadState;
 import java.nio.file.Paths;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import Pages.NationalDexPage.PokemonFullListPage;
+import Pages.PokemonFullListPage.PokemonFullListPage;
 import Pages.PokedexPage.PokedexPage;
 import Pages.PokemonHomePage.PokemonHomePage;
 

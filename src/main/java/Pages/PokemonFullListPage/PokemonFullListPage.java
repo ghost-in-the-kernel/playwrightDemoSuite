@@ -1,7 +1,7 @@
-package Pages.NationalDexPage;
+package Pages.PokemonFullListPage;
 
-import Pages.NationalDexPage.Actions.PokemonFullListClickActions;
-import Pages.NationalDexPage.Actions.PokemonFullListVerifyActions;
+import Pages.PokemonFullListPage.Actions.PokemonFullListClickActions;
+import Pages.PokemonFullListPage.Actions.PokemonFullListVerifyActions;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.LoadState;
 import org.paulJensen.qa.pokeTests.ClickableAction;

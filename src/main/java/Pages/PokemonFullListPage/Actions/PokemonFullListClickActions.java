@@ -1,5 +1,5 @@
-package Pages.NationalDexPage.Actions;
-import Pages.NationalDexPage.PokemonFullListElements;
+package Pages.PokemonFullListPage.Actions;
+import Pages.PokemonFullListPage.PokemonFullListElements;
 import com.microsoft.playwright.Page;
 
 public class PokemonFullListClickActions {

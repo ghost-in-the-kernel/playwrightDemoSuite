@@ -1,6 +1,6 @@
 package Pages.PokedexPage.Actions;
 
-import Pages.NationalDexPage.PokemonFullListPage;
+import Pages.PokemonFullListPage.PokemonFullListPage;
 import Pages.PokedexPage.PokedexPageElements;
 import com.microsoft.playwright.Page;
 
