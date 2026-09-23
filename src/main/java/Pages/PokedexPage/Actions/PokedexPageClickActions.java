@@ -12,9 +12,9 @@ public class PokedexPageClickActions {
     }
 
     public PokemonFullListPage goToMasterList() {
-        PokedexPageElements.NATIONAL_DEX_LINK.locator(page).scrollIntoViewIfNeeded();
-        PokedexPageElements.NATIONAL_DEX_LINK.locator(page).highlight();
-        PokedexPageElements.NATIONAL_DEX_LINK.locator(page).click();
+        PokedexPageElements.MasterListLink.locator(page).scrollIntoViewIfNeeded();
+        PokedexPageElements.MasterListLink.locator(page).highlight();
+        PokedexPageElements.MasterListLink.locator(page).click();
         System.out.println("Navigating to /all pokemon List...");
         page.waitForURL("**/pokedex/all");
         return new PokemonFullListPage(page);

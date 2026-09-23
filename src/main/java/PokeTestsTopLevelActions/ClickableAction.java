@@ -1,4 +1,4 @@
-package org.paulJensen.qa.pokeTests;
+package PokeTestsTopLevelActions;
 
 public interface ClickableAction<T>{
     T click();

@@ -3,8 +3,8 @@ package Pages.PokedexPage;
 import Pages.PokedexPage.Actions.PokedexPageClickActions;
 import Pages.PokedexPage.Actions.PokedexPageVerifyActions;
 import com.microsoft.playwright.Page;
-import org.paulJensen.qa.pokeTests.ClickableAction;
-import org.paulJensen.qa.pokeTests.VerifiableAction;
+import PokeTestsTopLevelActions.ClickableAction;
+import PokeTestsTopLevelActions.VerifiableAction;
 
 public class PokedexPage implements
         ClickableAction<PokedexPageClickActions>,

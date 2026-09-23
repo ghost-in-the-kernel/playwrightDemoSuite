@@ -5,7 +5,7 @@ import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
 
 public enum PokedexPageElements {
-    NATIONAL_DEX_LINK(page -> page.getByRole(AriaRole.LINK,
+    MasterListLink(page -> page.getByRole(AriaRole.LINK,
             new Page.GetByRoleOptions().setName("All Pokémon")).first());
 
     PokedexPageElements(LocatorProvider provider) {

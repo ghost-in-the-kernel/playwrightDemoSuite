@@ -4,8 +4,8 @@ import Pages.PokemonFullListPage.Actions.PokemonFullListClickActions;
 import Pages.PokemonFullListPage.Actions.PokemonFullListVerifyActions;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.LoadState;
-import org.paulJensen.qa.pokeTests.ClickableAction;
-import org.paulJensen.qa.pokeTests.VerifiableAction;
+import PokeTestsTopLevelActions.ClickableAction;
+import PokeTestsTopLevelActions.VerifiableAction;
 
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
